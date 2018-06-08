@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>{% if page.title %} {{ page.title }} {% else %} {{ site.title }} {% endif %}</title>
+    <link rel="stylesheet" href="{{ "/assets/css/materialize.css" | prepend: site.baseurl }}">  
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    
+    <script src="{{"/assets/js/jquery-3.3.1.min.js" | prepend: site.baseurl }}"></script> 
+    <script src="{{"/assets/js/materialize.js" | prepend: site.baseurl }}"></script> 
+
+
+
+</head>
+<body>    
+        <nav>           
+            <div class="nav-wrapper center">
+                <img class="logo-nav" id="logo" src="{{ "/assets/fonts/hsrtech.svg" | prepend: site.baseurl }}"/>                                                
+                <ul class="left">                    
+                    <li><a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fas fa-bars fa-3x"></i></a></li>                  
+                </ul>                
+              </div>
+        </nav>
+
+        <ul id="slide-out" class="sidenav">
+            <li><div class="user-view">
+                <div class="background">
+                        <img class="logo-nav" id="logo" src="{{ "/assets/fonts/hsrtech.svg" | prepend: site.baseurl }}"/>                                                
+                </div>                        
+            </div>
+            </li>
+            <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+            <li><a href="#!">Second Link</a></li>
+            <li><div class="divider"></div></li>
+            <li><a class="subheader">Subheader</a></li>
+            <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        </ul> 
+        <div class="container">
+            <div class="row">
+                {{content}}
+            </div>
+        </div>            
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems, options);
+        });
+
+        // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+        // var collapsibleElem = document.querySelector('.collapsible');
+        // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+
+        // Or with jQuery
+
+        $(document).ready(function(){
+            $('.sidenav').sidenav();
+        });
+    </script>
+</body>
+</html>
